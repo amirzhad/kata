@@ -3,6 +3,7 @@ from collections import defaultdict, Counter
 from pathlib import Path
 from TextGeneration.utils.preprocessor import Preprocessor
 import sys
+import pickle
 
 # Global variables
 max_generated_text = 50
@@ -130,6 +131,10 @@ words = preprocess_text(documents)
 # creating the ngram models
 ngram_model = build_ngram(words, n=ngram_size)
 
+# save the model
+with open("3gram_model.pkl", "wb") as f:
+    pickle.dump(ngram_model, f)
+
 # create a sample text
 sample_text = "use only"
 
@@ -140,6 +145,10 @@ while (size_generated_words < max_generated_text) and not (generated_text.endswi
     generated_text = generate_text(ngram_model, generated_text, length=1)
     size_generated_words += 1
 
+# erase "</TEXT>" from generated text
+generated_text = generated_text.replace(" </TEXT>", "")
+
 # print the generated text
 print(generated_text)
+
 
