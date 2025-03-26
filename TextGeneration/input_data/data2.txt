@@ -1,0 +1,39 @@
+For the training code:
+
+Do not calculate the probabilities for nnn-grams occurring fewer than 6 times.
+The input data are plain text documents located in a directory.
+Do not enforce a particular file name extension for the trained model.
+In other words, the user is free to define the file name including the extension (e.g. .file, .jm, .data, etc.).
+
+
+For all the input texts (training/generation):
+
+Only use the text pre-processor provided by us. In other words, do not pre-process more the input texts.
+Tokenize them based on white-spaces only.
+Never change the case of the input/output.
+The new line character (\n) will mark the end of a string.
+Do not generate nnn-grams over multiple lines. In other words the new line character
+cannot be part of an nnn-gram.
+
+
+For the generated text:
+
+Do not print the symbols marking the beginning or ending of a text (see the project's Wiki).
+Ensure that the generated text do not start or end with any kind of spaces.
+The generation of a text must end when:
+
+The end of a string has been predicted.
+There is no following word in the model.
+More than 50 words have been generated (do not count those input by the user).
+
+
+
+
+Do not use external tools, such as Spacy for processing the text.
+We want to see your thinking and coding competences.
+Do not change the minimum version of Python (3.10).
+Do not remove any dependency found in either the pyproject.toml or the requirements.txt files.
+You can add new entries to the .gitignore file, but do not remove entries from it.
+You do not need to provide neither the training data nor the trained nnn-grams language model.
+You must commit your code on GitHub or any other SCM repository you prefer (e.g. BitBucket, GitLab, etc) and send us the link.
+Read carefully this README, and do not take more than 2 hours to develop the code.
