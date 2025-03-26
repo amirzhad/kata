@@ -94,6 +94,9 @@ def main_generate(file_str_path: str) -> None:
         generated_text = generate_text(ngram_model, generated_text, length=1)
         size_generated_words += 1
 
+    # erase "</TEXT>" from generated text
+    generated_text = generated_text.replace(" </TEXT>", "")
+
     # Printing generated texts
     output_schema = OutputSchema(generated_texts=generated_text)
     schema_to_json(file_path=input_schema.output_file, schema=output_schema)
